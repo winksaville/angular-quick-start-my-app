@@ -3,6 +3,8 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  const app_title = 'My First Angular App';
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -17,16 +19,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'My First Angular App'`, async(() => {
+  it(`should have as title '${app_title}'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('My First Angular App');
+    expect(app.title).toEqual(`${app_title}`);
   }));
 
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to My First Angular App!');
+    expect(compiled.querySelector('h1').textContent).toContain(`Welcome to ${app_title}!`);
   }));
 });
